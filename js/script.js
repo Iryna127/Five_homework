@@ -9,20 +9,24 @@ function fillArray(num, text) {
 }
 console.log(fillArray(10, "qwerty"));
 
+
 //Second task
 
-const arrNew = [0, 1, 2, null, undefined, "qwerty", false];
-function fillterArray(arg, ...args) {
-  let result = [];
-  for (let i = 0; i < arg.length; i++) {
-    if (Boolean(arg[i]) !== Boolean(args[i])) {
-      result.push(arg[i]);
+let arrFilter = [0, 1, 2, null, undefined, 'qwerty', false];
+function filterArray(arrFilter, ...filters) {
+  for (let i = 0; i < arrFilter.length; i++) {
+    for (let ii = 0; ii < filters.length; ii++) {
+      if (arrFilter[i] === filters[ii]) {
+        arrFilter.splice(i, 1);
+        i--;
+        break;
+      }
     }
   }
-  return result;
+  return arrFilter;
 }
-result = fillterArray(arrNew, false, undefined, "", 0, null);
-console.log(result);
+console.log(filterArray(arrFilter, false, undefined, '', 0, null));
+ 
 
 //Third task
 
